@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" User module
+""" This mdule deals with User module
 """
 import hashlib
 from models.base import Base
