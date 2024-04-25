@@ -22,8 +22,8 @@ def _hash_password(password: str) -> bytes:
     Args:
         password (str): password in string format
     """
-    passwd = password.encode('utf-8')
-    return bcrypt.hashpw(passwd, bcrypt.gensalt())
+    passwword = password.encode('utf-8')
+    return bcrypt.hashpw(passwword, bcrypt.gensalt())
 
 
 def _generate_uuid() -> str:
@@ -54,8 +54,8 @@ class Auth:
             self._db.find_user_by(email=email)
         except NoResultFound:
             hashed = _hash_password(password)
-            usr = self._db.add_user(email, hashed)
-            return usr
+            usser = self._db.add_user(email, hashed)
+            return usser
         raise ValueError(f"User {email} already exists")
 
     def valid_login(self, email: str, password: str) -> bool:
